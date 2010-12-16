@@ -1,0 +1,62 @@
+                          StatMantis
+
+                                                                  MMM           
+                                                               M                
+                                                             M                  
+                                           MMMMMM           M                   
+                                       M            MM                          
+                                    M                  M                        
+                                                        MMMMM                   
+                                                     M     M                    
+                                                    MM  M   M M                 
+                                                    M                           
+                                                  MMMMM  M      M               
+                                                M     MM       M                
+                                              M      M                          
+                                             M    MMM                           
+                                           M    M  MM                           
+                                         M     M MMM M        MM  M   M         
+                                        M     M  M  M M     M MM M  MM M        
+                                      M     M  M M   M     M  MM  MM M M        
+                                     M   MM M    M   M M  M     M M    M        
+                                   MMM     M     M    M  M   M  M               
+                                MMM  M     M      M   M M   M MMMM   M          
+                              MM     M MM M       M   MM   M MMM                
+                    M       MM      M M MMMM       M  M   MMM  MM               
+                    M     MM       M  M MM  M      MM M  MM   M                 
+                   M  MMMM        M   M M  M       MM  MM M                     
+                   M MMM         M    MM     M   M   M  M M                     
+                    MM   MMMMMMMM  MMMMM      MM   M    M                       
+            M    MMM                M  M  MMMMM      M   M M                    
+             M  MMM  MMMMMMMMMMMMMMMM  M       MMMM  M   M M                    
+              M  M          MM   MM    MMMMM      M M    M M                    
+             MM  MM       MM    M                 M M      M                    
+           MM  M  M     MM    MM                 M M       M                    
+         MM    MM MM MMM    MM                   M M      MM                    
+       MM       M  MM    MMM                    M M       MM                    
+     MM       MMMM  M MMM                       M         M                     
+   MM    MMMMM   MM M                          M M        M                     
+   MMMM   MMMMMMMMM M                           M         M                     
+               M  MM M                        MM                                
+                M  M M                       M                                  
+              M M   M M                                                         
+               M    M M                                                         
+             MM      M M                                                        
+            MM       M                                                          
+          MMMM       M  M                                                       
+                     M  M                                                       
+                    M MM                                                        
+                  M MM                                                          
+                MMM                                                             
+               MM                                                               
+               
+** This software is far from complete and will contain many bugs!! **
+
+The goals of this project are:
+
+* To provide a complete retrosheet parser/importer
+* To provide a complete lahman importer
+* To provide a complete MLB pitch FX importer
+* To store to one of many database vendors
+* To provide a web interface to all data
+* to provide an easy map/reduce way to generate statistics

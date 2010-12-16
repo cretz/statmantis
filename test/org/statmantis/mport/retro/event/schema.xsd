@@ -1,0 +1,798 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:bb="http://base.googlecode.com/schema/1"
+	elementFormDefault="qualified" targetNamespace="http://base.googlecode.com/schema/1">
+	<complexType name="approximateDate">
+		<attribute name="year" type="int" />
+		<attribute name="month" type="int" />
+		<attribute name="day" type="int" />
+	</complexType>
+	<simpleType name="atBatEvent">
+		<restriction base="string">
+			<enumeration value="CATCHER_PICKOFF" />
+			<enumeration value="CATCHER_BLOCKED_NEXT_PITCH" />
+			<enumeration value="BATTER_NOT_INVOLED_ON_PLAY" />
+			<enumeration value="PICKOFF_TO_FIRST" />
+			<enumeration value="PICKOFF_TO_SECOND" />
+			<enumeration value="PICKOFF_TO_THIRD" />
+			<enumeration value="RUNNER_GOING_NEXT_PITCH" />
+			<enumeration value="BALL" />
+			<enumeration value="STRIKE_CALLED" />
+			<enumeration value="FOUL" />
+			<enumeration value="HIT_BATTER" />
+			<enumeration value="INTENTIONAL_BALL" />
+			<enumeration value="STRIKE" />
+			<enumeration value="BUNT_FOUL" />
+			<enumeration value="BUNT_MISSED" />
+			<enumeration value="NO_PITCH" />
+			<enumeration value="BUNT_FOUL_TIP" />
+			<enumeration value="PITCHOUT" />
+			<enumeration value="PITCHOUT_SWINGING" />
+			<enumeration value="PITCHOUT_FOUL" />
+			<enumeration value="STRIKE_SWINGING" />
+			<enumeration value="FOUL_TIP" />
+			<enumeration value="UNKNOWN_PITCH" />
+			<enumeration value="BALL_PITCHER_MOUTH" />
+			<enumeration value="IN_PLAY" />
+			<enumeration value="IN_PLAY_PITCHOUT" />
+		</restriction>
+	</simpleType>
+	<simpleType name="base">
+		<restriction base="string">
+			<enumeration value="FIRST" />
+			<enumeration value="SECOND" />
+			<enumeration value="THIRD" />
+			<enumeration value="HOME" />
+		</restriction>
+	</simpleType>
+	<simpleType name="draftType">
+		<restriction base="string">
+			<enumeration value="SECONDARY_PHASE" />
+			<enumeration value="SECONDARY_PHASE_ACTIVE" />
+			<enumeration value="AMERICAN_LEGION" />
+			<enumeration value="DOMINICAN_DRAFT" />
+		</restriction>
+	</simpleType>
+	<simpleType name="errorType">
+		<restriction base="string">
+			<enumeration value="FIELDING" />
+			<enumeration value="CATCHING" />
+			<enumeration value="THROWING" />
+		</restriction>
+	</simpleType>
+	<simpleType name="fieldCondition">
+		<restriction base="string">
+			<enumeration value="DRY" />
+			<enumeration value="SOAKED" />
+			<enumeration value="WET" />
+		</restriction>
+	</simpleType>
+	<simpleType name="fieldLocation">
+		<restriction base="string">
+			<enumeration value="MOUND" />
+			<enumeration value="MOUND_FIRST" />
+			<enumeration value="MOUND_THIRD" />
+			<enumeration value="MOUND_FRONT" />
+			<enumeration value="HOME" />
+			<enumeration value="HOME_FIRST" />
+			<enumeration value="HOME_FIRST_FOUL" />
+			<enumeration value="HOME_THIRD" />
+			<enumeration value="HOME_THIRD_FOUL" />
+			<enumeration value="HOME_FOUL" />
+			<enumeration value="FIRST" />
+			<enumeration value="FIRST_FOUL" />
+			<enumeration value="FIRST_FOUL_DEEP" />
+			<enumeration value="FIRST_SHALLOW" />
+			<enumeration value="FIRST_DEEP" />
+			<enumeration value="FIRST_SECOND" />
+			<enumeration value="FIRST_SECOND_SHALLOW" />
+			<enumeration value="FIRST_SECOND_DEEP" />
+			<enumeration value="SECOND" />
+			<enumeration value="SECOND_SHALLOW" />
+			<enumeration value="SECOND_DEEP" />
+			<enumeration value="SECOND_MIDDLE" />
+			<enumeration value="SECOND_MIDDLE_SHALLOW" />
+			<enumeration value="SECOND_MIDDLE_DEEP" />
+			<enumeration value="THIRD" />
+			<enumeration value="THIRD_FOUL" />
+			<enumeration value="THIRD_FOUL_DEEP" />
+			<enumeration value="THIRD_SHALLOW" />
+			<enumeration value="THIRD_DEEP" />
+			<enumeration value="THIRD_SHORTSTOP" />
+			<enumeration value="THIRD_SHORTSTOP_SHALLOW" />
+			<enumeration value="THIRD_SHORTSTOP_DEEP" />
+			<enumeration value="SHORTSTOP" />
+			<enumeration value="SHORTSTOP_SHALLOW" />
+			<enumeration value="SHORTSTOP_DEEP" />
+			<enumeration value="SHORTSTOP_MIDDLE" />
+			<enumeration value="SHORTSTOP_MIDDLE_SHALLOW" />
+			<enumeration value="SHORTSTOP_MIDDLE_DEEP" />
+			<enumeration value="LEFT" />
+			<enumeration value="LEFT_FOUL" />
+			<enumeration value="LEFT_FOUL_SHALLOW" />
+			<enumeration value="LEFT_FOUL_DEEP" />
+			<enumeration value="LEFT_SHALLOW" />
+			<enumeration value="LEFT_DEEP" />
+			<enumeration value="LEFT_CENTER" />
+			<enumeration value="LEFT_CENTER_SHALLOW" />
+			<enumeration value="LEFT_CENTER_DEEP" />
+			<enumeration value="LEFT_CENTER_WALL" />
+			<enumeration value="LEFT_LINE" />
+			<enumeration value="LEFT_LINE_SHALLOW" />
+			<enumeration value="LEFT_LINE_DEEP" />
+			<enumeration value="CENTER" />
+			<enumeration value="CENTER_SHALLOW" />
+			<enumeration value="CENTER_DEEP" />
+			<enumeration value="CENTER_WALL" />
+			<enumeration value="RIGHT" />
+			<enumeration value="RIGHT_FOUL" />
+			<enumeration value="RIGHT_FOUL_SHALLOW" />
+			<enumeration value="RIGHT_FOUL_DEEP" />
+			<enumeration value="RIGHT_SHALLOW" />
+			<enumeration value="RIGHT_DEEP" />
+			<enumeration value="RIGHT_CENTER" />
+			<enumeration value="RIGHT_CENTER_SHALLOW" />
+			<enumeration value="RIGHT_CENTER_DEEP" />
+			<enumeration value="RIGHT_CENTER_WALL" />
+			<enumeration value="RIGHT_LINE" />
+			<enumeration value="RIGHT_LINE_SHALLOW" />
+			<enumeration value="RIGHT_LINE_DEEP" />
+		</restriction>
+	</simpleType>
+	<simpleType name="forfeiture">
+		<restriction base="string">
+			<enumeration value="VISITOR" />
+			<enumeration value="HOME" />
+			<enumeration value="NO_DECISION" />
+		</restriction>
+	</simpleType>
+	<element name="game" type="bb:game" />
+	<complexType name="game">
+		<choice maxOccurs="unbounded" minOccurs="0">
+			<element minOccurs="0" name="park" type="bb:park" />
+			<element minOccurs="0" name="visitingTeam" type="bb:team" />
+			<element minOccurs="0" name="visitorInfo" type="bb:teamGameInfo" />
+			<element minOccurs="0" name="homeTeam" type="bb:team" />
+			<element minOccurs="0" name="homeInfo" type="bb:teamGameInfo" />
+			<element minOccurs="0" name="completion" type="bb:gameCompletion" />
+			<element minOccurs="0" name="umpireHome" type="bb:person" />
+			<element minOccurs="0" name="umpireFirst" type="bb:person" />
+			<element minOccurs="0" name="umpireSecond" type="bb:person" />
+			<element minOccurs="0" name="umpireThird" type="bb:person" />
+			<element minOccurs="0" name="umpireLeft" type="bb:person" />
+			<element minOccurs="0" name="umpireRight" type="bb:person" />
+			<element maxOccurs="unbounded" minOccurs="0" name="plays"
+				type="bb:play" />
+			<element maxOccurs="unbounded" minOccurs="0" name="protests"
+				type="bb:protest" />
+		</choice>
+		<attribute name="gameId" type="long" />
+		<attribute name="retroId" type="string" />
+		<attribute name="dayNumber" type="bb:gameDayNumber" />
+		<attribute name="startDate" type="date" />
+		<attribute name="startTime" type="time" />
+		<attribute name="scheduledStartDate" type="date" />
+		<attribute name="type" type="bb:gameType" />
+		<attribute name="outs" type="int" />
+		<attribute name="dayGame" type="boolean" />
+		<attribute name="forfeiture" type="bb:forfeiture" />
+		<attribute name="attendance" type="int" />
+		<attribute name="timeInMinutes" type="int" />
+		<attribute name="homeTeamBattedFirst" type="boolean" />
+		<attribute name="accuracy" type="bb:gameAccuracy" />
+		<attribute name="designatedHitterPresent" type="boolean" />
+		<attribute name="fieldCondition" type="bb:fieldCondition" />
+		<attribute name="precipitation" type="bb:precipitation" />
+		<attribute name="skyCondition" type="bb:skyCondition" />
+		<attribute name="temperature" type="int" />
+		<attribute name="windDirection" type="bb:windDirection" />
+		<attribute name="windspeed" type="int" />
+	</complexType>
+	<simpleType name="gameAccuracy">
+		<restriction base="string">
+			<enumeration value="COMPLETE_GAME" />
+			<enumeration value="NO_INFORMATION" />
+			<enumeration value="BOX_SCORE" />
+			<enumeration value="SOME_INFO" />
+		</restriction>
+	</simpleType>
+	<complexType name="gameCompletion">
+		<choice maxOccurs="unbounded" minOccurs="0">
+			<element minOccurs="0" name="park" type="bb:park" />
+		</choice>
+		<attribute name="gameCompletionId" type="long" />
+		<attribute name="visitorScoreAtInterruption" type="int" />
+		<attribute name="homeScoreAtInterruption" type="int" />
+		<attribute name="outsAtInterruption" type="int" />
+		<attribute name="completionDate" type="date" />
+	</complexType>
+	<simpleType name="gameDayNumber">
+		<restriction base="string">
+			<enumeration value="SINGLE_GAME" />
+			<enumeration value="FIRST_GAME" />
+			<enumeration value="SECOND_GAME" />
+			<enumeration value="THIRD_GAME" />
+			<enumeration value="FIRST_GAME_THREE_WAY" />
+			<enumeration value="SECOND_GAME_THREE_WAY" />
+		</restriction>
+	</simpleType>
+	<complexType name="gamePlayer">
+		<choice maxOccurs="unbounded" minOccurs="0">
+			<element minOccurs="0" name="player" type="bb:person" />
+			<element maxOccurs="unbounded" minOccurs="0" name="positions"
+				type="bb:gamePosition" />
+		</choice>
+		<attribute name="gamePlayerId" type="long" />
+		<attribute name="earnedRuns" type="int" />
+	</complexType>
+	<complexType name="gamePosition">
+		<attribute name="gamePositionId" type="long" />
+		<attribute name="beginningInning" type="int" />
+		<attribute name="lineupPosition" type="int" />
+		<attribute name="position" type="bb:position" />
+	</complexType>
+	<simpleType name="gameType">
+		<restriction base="string">
+			<enumeration value="PRESEASON" />
+			<enumeration value="REGULAR_SEASON" />
+			<enumeration value="ALL_STAR" />
+			<enumeration value="PLAYOFF" />
+			<enumeration value="POSTSEASON_DIVISIONAL" />
+			<enumeration value="POSTSEASON_LEAGUE" />
+			<enumeration value="POSTSEASON_WORLD_SERIES" />
+		</restriction>
+	</simpleType>
+	<simpleType name="handPreference">
+		<restriction base="string">
+			<enumeration value="RIGHT" />
+			<enumeration value="LEFT" />
+			<enumeration value="BOTH" />
+		</restriction>
+	</simpleType>
+	<complexType name="league">
+		<attribute name="leagueId" type="long" />
+		<attribute name="retroId" type="string" />
+		<attribute name="abbreviation" type="string" />
+		<attribute name="name" type="string" />
+		<attribute name="level" type="bb:level" />
+	</complexType>
+	<simpleType name="level">
+		<restriction base="string">
+			<enumeration value="ML" />
+			<enumeration value="AAA" />
+			<enumeration value="AA" />
+			<enumeration value="A" />
+			<enumeration value="COLLEGIATE" />
+		</restriction>
+	</simpleType>
+	<complexType name="location">
+		<attribute name="country" type="string" />
+		<attribute name="city" type="string" />
+		<attribute name="state" type="bb:stateProvince" />
+	</complexType>
+	<complexType name="park">
+		<choice maxOccurs="unbounded" minOccurs="0">
+			<element minOccurs="0" name="location" type="bb:pinPointLocation" />
+			<element maxOccurs="unbounded" minOccurs="0" name="references"
+				type="bb:reference" />
+			<element maxOccurs="unbounded" minOccurs="0" name="teams"
+				type="bb:team" />
+			<element maxOccurs="unbounded" minOccurs="0" name="previousNames"
+				type="string" />
+		</choice>
+		<attribute name="parkId" type="long" />
+		<attribute name="retroId" type="string" />
+		<attribute name="name" type="string" />
+		<attribute name="inception" type="date" />
+		<attribute name="conclusion" type="date" />
+		<attribute name="comments" type="string" />
+	</complexType>
+	<complexType name="person">
+		<choice maxOccurs="unbounded" minOccurs="0">
+			<element minOccurs="0" name="birth" type="bb:location" />
+			<element minOccurs="0" name="death" type="bb:location" />
+			<element maxOccurs="unbounded" minOccurs="0" name="nicknames"
+				type="string" />
+		</choice>
+		<attribute name="personId" type="long" />
+		<attribute name="retroId" type="string" />
+		<attribute name="lahmanId" type="string" />
+		<attribute name="firstName" type="string" />
+		<attribute name="lastName" type="string" />
+		<attribute name="birthDate" type="date" />
+		<attribute name="deathDate" type="date" />
+		<attribute name="weight" type="int" />
+		<attribute name="height" type="int" />
+		<attribute name="battingPreference" type="bb:handPreference" />
+		<attribute name="throwingPreference" type="bb:handPreference" />
+		<attribute name="college" type="string" />
+		<attribute name="debut" type="date" />
+	</complexType>
+	<complexType name="pinPointLocation">
+		<attribute name="latitude" type="decimal" />
+		<attribute name="longitude" type="decimal" />
+	</complexType>
+	<complexType name="pitch">
+		<attribute name="pitchId" type="long" />
+		<attribute name="cameraX" type="float" />
+		<attribute name="cameraZ" type="float" />
+		<attribute name="startSpeed" type="float" />
+		<attribute name="endSpeed" type="float" />
+		<attribute name="strikeZoneTop" type="float" />
+		<attribute name="strikeZoneBottom" type="float" />
+		<attribute name="deviationX" type="float" />
+		<attribute name="deviationY" type="float" />
+		<attribute name="pitchX" type="float" />
+		<attribute name="pitchZ" type="float" />
+		<attribute name="initialX" type="float" />
+		<attribute name="initialY" type="float" />
+		<attribute name="initialZ" type="float" />
+		<attribute name="initialVelocityX" type="float" />
+		<attribute name="initialVelocityY" type="float" />
+		<attribute name="initialVelocityZ" type="float" />
+		<attribute name="accelerationX" type="float" />
+		<attribute name="accelerationY" type="float" />
+		<attribute name="accelerationZ" type="float" />
+		<attribute name="breakY" type="float" />
+		<attribute name="breakAngle" type="float" />
+		<attribute name="breakLength" type="float" />
+		<attribute name="description" type="string" />
+		<attribute name="pitchType" type="float" />
+		<attribute name="typeConfidence" type="float" />
+		<attribute name="zone" type="int" />
+		<attribute name="nasty" type="int" />
+		<attribute name="spinDirection" type="float" />
+		<attribute name="spinRate" type="float" />
+	</complexType>
+	<simpleType name="pitchType">
+		<restriction base="string">
+			<enumeration value="FASTBALL" />
+			<enumeration value="FOUR_SEAM_FASTBALL" />
+			<enumeration value="TWO_SEAM_FASTBALL" />
+			<enumeration value="CUTTER" />
+			<enumeration value="SPLITTER" />
+			<enumeration value="FORKBALL" />
+			<enumeration value="SINKER" />
+			<enumeration value="SLIDER" />
+			<enumeration value="CURVE_BALL" />
+			<enumeration value="KNUCKLE_CURVE" />
+			<enumeration value="SCREWBALL" />
+			<enumeration value="GYROBALL" />
+			<enumeration value="CHANGEUP" />
+			<enumeration value="KNUCKLE_BALL" />
+			<enumeration value="INTENT_BALL" />
+			<enumeration value="PITCHOUT" />
+			<enumeration value="DEFAULT" />
+		</restriction>
+	</simpleType>
+	<complexType name="play">
+		<choice maxOccurs="unbounded" minOccurs="0">
+			<element minOccurs="0" name="player" type="bb:gamePlayer" />
+			<element maxOccurs="unbounded" minOccurs="0" name="atBatEvents"
+				type="bb:atBatEvent" />
+			<element minOccurs="0" name="event" type="bb:playEvent" />
+			<element maxOccurs="unbounded" minOccurs="0" name="advancements"
+				type="bb:playRunnerAdvancement" />
+			<element maxOccurs="unbounded" minOccurs="0" name="pitches"
+				type="bb:pitch" />
+			<element maxOccurs="unbounded" minOccurs="0" name="comments"
+				type="string" />
+		</choice>
+		<attribute name="playId" type="long" />
+		<attribute name="inning" type="int" />
+		<attribute name="homeTeam" type="boolean" />
+		<attribute name="balls" type="int" />
+		<attribute name="strikes" type="int" />
+		<attribute name="substitution" type="boolean" />
+		<attribute name="battedOutOfTurn" type="boolean" />
+		<attribute name="batterHandAdjustment" type="bb:handPreference" />
+		<attribute name="pitcherHandAdjustment" type="bb:handPreference" />
+	</complexType>
+	<complexType name="playEvent">
+		<choice maxOccurs="unbounded" minOccurs="0">
+			<element minOccurs="0" name="baseRunner" type="bb:gamePlayer" />
+			<element minOccurs="0" name="secondaryEvent" type="bb:playEvent" />
+			<element maxOccurs="unbounded" minOccurs="0" name="fielders"
+				type="bb:gamePlayer" />
+			<element maxOccurs="unbounded" minOccurs="0" name="modifiers"
+				type="bb:playModifier" />
+		</choice>
+		<attribute name="playEventId" type="long" />
+		<attribute name="runningFrom" type="bb:base" />
+		<attribute name="runningTo" type="bb:base" />
+		<attribute name="errorType" type="bb:errorType" />
+		<attribute name="out" type="boolean" />
+		<attribute name="playType" type="bb:playType" />
+	</complexType>
+	<complexType name="playModifier">
+		<choice maxOccurs="unbounded" minOccurs="0">
+			<element minOccurs="0" name="fielder" type="bb:gamePlayer" />
+		</choice>
+		<attribute name="playModifierId" type="long" />
+		<attribute name="type" type="bb:playModifierType" />
+		<attribute name="location" type="bb:fieldLocation" />
+		<attribute name="base" type="bb:base" />
+	</complexType>
+	<simpleType name="playModifierType">
+		<restriction base="string">
+			<enumeration value="BUNT" />
+			<enumeration value="FLY_BALL_BUNT" />
+			<enumeration value="GROUND_BALL_BUNT" />
+			<enumeration value="BUNT_GROUND_OUT_DOUBLE_PLAY" />
+			<enumeration value="BUNT_LINE_DRIVE" />
+			<enumeration value="BUNT_POP_UP" />
+			<enumeration value="BUNT_POP_UP_DOUBLE_PLAY" />
+			<enumeration value="RUNNER_HIT_BY_BALL" />
+			<enumeration value="CALLED_THIRD_STRIKE" />
+			<enumeration value="DOUBLE_PLAY" />
+			<enumeration value="ERROR" />
+			<enumeration value="FLY" />
+			<enumeration value="FLY_DOUBLE_PLAY" />
+			<enumeration value="FOUL" />
+			<enumeration value="FORCE_OUT" />
+			<enumeration value="GROUND_BALL" />
+			<enumeration value="GROUND_OUT_DOUBLE_PLAY" />
+			<enumeration value="GROUND_OUT_TRIPLE_PLAY" />
+			<enumeration value="INTERFERENCE" />
+			<enumeration value="LINE_DRIVE" />
+			<enumeration value="LINE_DRIVE_DOUBLE_PLAY" />
+			<enumeration value="LINE_DRIVE_TRIPLE_PLAY" />
+			<enumeration value="POP_FLY" />
+			<enumeration value="RELAY_THROW" />
+			<enumeration value="SACRIFICE_FLY" />
+			<enumeration value="SACRIFICE_HIT" />
+			<enumeration value="THROW" />
+			<enumeration value="TRIPLE_PLAY" />
+			<enumeration value="UNEARNED_RUN" />
+			<enumeration value="RBI" />
+			<enumeration value="NO_RBI" />
+			<enumeration value="TEAM_UNEARNED_RUN" />
+		</restriction>
+	</simpleType>
+	<complexType name="playRunnerAdvancement">
+		<choice maxOccurs="unbounded" minOccurs="0">
+			<element maxOccurs="unbounded" minOccurs="0" name="modifiers"
+				type="bb:playModifier" />
+			<element maxOccurs="unbounded" minOccurs="0" name="fielders"
+				type="bb:gamePlayer" />
+		</choice>
+		<attribute name="playRunnerAdvancementId" type="long" />
+		<attribute name="baseFrom" type="bb:base" />
+		<attribute name="baseTo" type="bb:base" />
+		<attribute name="out" type="boolean" />
+	</complexType>
+	<simpleType name="playType">
+		<restriction base="string">
+			<enumeration value="FLY_OUT" />
+			<enumeration value="GROUND_OUT" />
+			<enumeration value="GROUND_OUT_DOUBLE_PLAY" />
+			<enumeration value="LINE_OUT_DOUBLE_PLAY" />
+			<enumeration value="GROUND_OUT_TRIPLE_PLAY" />
+			<enumeration value="LINE_OUT_TRIPLE_PLAY" />
+			<enumeration value="INTERFERENCE" />
+			<enumeration value="SINGLE" />
+			<enumeration value="DOUBLE" />
+			<enumeration value="TRIPLE" />
+			<enumeration value="GROUND_RULE_DOUBLE" />
+			<enumeration value="ERROR" />
+			<enumeration value="FIELDERS_CHOICE" />
+			<enumeration value="ERROR_FOUL_FLY" />
+			<enumeration value="HOME_RUN" />
+			<enumeration value="HIT_BY_PITCH" />
+			<enumeration value="STRIKE_OUT" />
+			<enumeration value="INTENTIONAL_WALK" />
+			<enumeration value="WALK" />
+			<enumeration value="BALK" />
+			<enumeration value="CAUGHT_STEALING" />
+			<enumeration value="DEFENSIVE_INDIFFERENCE" />
+			<enumeration value="RUNNER_ADVANCEMENT" />
+			<enumeration value="PASSED_BALL" />
+			<enumeration value="WILD_PITCH" />
+			<enumeration value="PICKOFF" />
+			<enumeration value="PICKOFF_CAUGHT_STEALING" />
+			<enumeration value="STOLEN_BASE" />
+		</restriction>
+	</simpleType>
+	<simpleType name="position">
+		<restriction base="string">
+			<enumeration value="PITCHER" />
+			<enumeration value="CATCHER" />
+			<enumeration value="FIRST_BASE" />
+			<enumeration value="SECOND_BASE" />
+			<enumeration value="THIRD_BASE" />
+			<enumeration value="SHORTSTOP" />
+			<enumeration value="LEFT_FIELD" />
+			<enumeration value="CENTER_FIELD" />
+			<enumeration value="RIGHT_FIELD" />
+			<enumeration value="DESIGNATED_HITTER" />
+			<enumeration value="PINCH_HITTER" />
+			<enumeration value="PINCH_RUNNER" />
+		</restriction>
+	</simpleType>
+	<simpleType name="precipitation">
+		<restriction base="string">
+			<enumeration value="NONE" />
+			<enumeration value="DRIZZLE" />
+			<enumeration value="RAIN" />
+			<enumeration value="SHOWERS" />
+			<enumeration value="SNOW" />
+		</restriction>
+	</simpleType>
+	<simpleType name="protest">
+		<restriction base="string">
+			<enumeration value="UNIDENTIFIED" />
+			<enumeration value="FAILED_VISITOR" />
+			<enumeration value="FAILED_HOME" />
+			<enumeration value="UPHELD_VISITOR" />
+			<enumeration value="UPHELD_HOME" />
+		</restriction>
+	</simpleType>
+	<complexType name="reference">
+		<attribute name="referenceId" type="long" />
+		<attribute name="url" type="string" />
+		<attribute name="comments" type="string" />
+	</complexType>
+	<complexType name="roster">
+		<choice maxOccurs="unbounded" minOccurs="0">
+			<element minOccurs="0" name="team" type="bb:team" />
+			<element maxOccurs="unbounded" minOccurs="0" name="players"
+				type="bb:person" />
+		</choice>
+		<attribute name="rosterId" type="long" />
+		<attribute name="year" type="int" />
+	</complexType>
+	<simpleType name="skyCondition">
+		<restriction base="string">
+			<enumeration value="CLOUDY" />
+			<enumeration value="DOME" />
+			<enumeration value="NIGHT" />
+			<enumeration value="OVERCAST" />
+			<enumeration value="SUNNY" />
+		</restriction>
+	</simpleType>
+	<simpleType name="stateProvince">
+		<restriction base="string">
+			<enumeration value="AL" />
+			<enumeration value="AK" />
+			<enumeration value="AS" />
+			<enumeration value="AZ" />
+			<enumeration value="AR" />
+			<enumeration value="CA" />
+			<enumeration value="CO" />
+			<enumeration value="CT" />
+			<enumeration value="DE" />
+			<enumeration value="DC" />
+			<enumeration value="FM" />
+			<enumeration value="FL" />
+			<enumeration value="GA" />
+			<enumeration value="GU" />
+			<enumeration value="HI" />
+			<enumeration value="ID" />
+			<enumeration value="IL" />
+			<enumeration value="IN" />
+			<enumeration value="IA" />
+			<enumeration value="KS" />
+			<enumeration value="KY" />
+			<enumeration value="LA" />
+			<enumeration value="ME" />
+			<enumeration value="MH" />
+			<enumeration value="MD" />
+			<enumeration value="MA" />
+			<enumeration value="MI" />
+			<enumeration value="MN" />
+			<enumeration value="MS" />
+			<enumeration value="MO" />
+			<enumeration value="MT" />
+			<enumeration value="NE" />
+			<enumeration value="NV" />
+			<enumeration value="NH" />
+			<enumeration value="NJ" />
+			<enumeration value="NM" />
+			<enumeration value="NY" />
+			<enumeration value="NC" />
+			<enumeration value="ND" />
+			<enumeration value="MP" />
+			<enumeration value="OH" />
+			<enumeration value="OK" />
+			<enumeration value="OR" />
+			<enumeration value="PW" />
+			<enumeration value="PA" />
+			<enumeration value="PR" />
+			<enumeration value="RI" />
+			<enumeration value="SC" />
+			<enumeration value="SD" />
+			<enumeration value="TN" />
+			<enumeration value="TX" />
+			<enumeration value="UT" />
+			<enumeration value="VT" />
+			<enumeration value="VI" />
+			<enumeration value="VA" />
+			<enumeration value="WA" />
+			<enumeration value="WV" />
+			<enumeration value="WI" />
+			<enumeration value="WY" />
+			<enumeration value="AB" />
+			<enumeration value="BC" />
+			<enumeration value="MB" />
+			<enumeration value="NB" />
+			<enumeration value="NL" />
+			<enumeration value="NT" />
+			<enumeration value="NS" />
+			<enumeration value="NU" />
+			<enumeration value="ON" />
+			<enumeration value="PE" />
+			<enumeration value="QC" />
+			<enumeration value="SK" />
+			<enumeration value="YT" />
+		</restriction>
+	</simpleType>
+	<complexType name="team">
+		<choice maxOccurs="unbounded" minOccurs="0">
+			<element minOccurs="0" name="previous" type="bb:team" />
+			<element minOccurs="0" name="became" type="bb:team" />
+			<element minOccurs="0" name="league" type="bb:league" />
+			<element maxOccurs="unbounded" minOccurs="0" name="parks"
+				type="bb:park" />
+			<element maxOccurs="unbounded" minOccurs="0" name="references"
+				type="bb:reference" />
+			<element maxOccurs="unbounded" minOccurs="0" name="otherNames"
+				type="string" />
+		</choice>
+		<attribute name="teamId" type="long" />
+		<attribute name="retroId" type="string" />
+		<attribute name="lahmanId" type="string" />
+		<attribute name="city" type="string" />
+		<attribute name="name" type="string" />
+		<attribute name="inception" type="date" />
+		<attribute name="conclusion" type="date" />
+		<attribute name="comments" type="string" />
+	</complexType>
+	<complexType name="teamGameInfo">
+		<choice maxOccurs="unbounded" minOccurs="0">
+			<element maxOccurs="unbounded" minOccurs="1" name="inningScores"
+				type="int" />
+			<element minOccurs="0" name="manager" type="bb:person" />
+			<element minOccurs="0" name="decidingPitcher" type="bb:gamePlayer" />
+			<element minOccurs="0" name="savingPitcher" type="bb:gamePlayer" />
+			<element minOccurs="0" name="winningBatter" type="bb:gamePlayer" />
+			<element maxOccurs="unbounded" minOccurs="0" name="gamePlayers"
+				type="bb:gamePlayer" />
+		</choice>
+		<attribute name="teamGameInfoId" type="long" />
+		<attribute name="gameNumber" type="int" />
+		<attribute name="score" type="int" />
+		<attribute name="atBats" type="int" />
+		<attribute name="hits" type="int" />
+		<attribute name="doubles" type="int" />
+		<attribute name="triples" type="int" />
+		<attribute name="homeruns" type="int" />
+		<attribute name="rbi" type="int" />
+		<attribute name="sacrificeHits" type="int" />
+		<attribute name="sacrificeFlies" type="int" />
+		<attribute name="hitByPitch" type="int" />
+		<attribute name="walks" type="int" />
+		<attribute name="intentionalWalks" type="int" />
+		<attribute name="strikeouts" type="int" />
+		<attribute name="stolenBases" type="int" />
+		<attribute name="caughtStealing" type="int" />
+		<attribute name="groundedIntoDoublePlays" type="int" />
+		<attribute name="opponentCatcherInterferences" type="int" />
+		<attribute name="leftOnBase" type="int" />
+		<attribute name="pitchersUsed" type="int" />
+		<attribute name="individualEarnedRuns" type="int" />
+		<attribute name="teamEarnedRuns" type="int" />
+		<attribute name="wildPitches" type="int" />
+		<attribute name="balks" type="int" />
+		<attribute name="putouts" type="int" />
+		<attribute name="assists" type="int" />
+		<attribute name="errors" type="int" />
+		<attribute name="passedBalls" type="int" />
+		<attribute name="doublePlays" type="int" />
+		<attribute name="triplePlays" type="int" />
+		<attribute name="winner" type="boolean" />
+	</complexType>
+	<complexType name="transaction">
+		<choice maxOccurs="unbounded" minOccurs="0">
+			<element minOccurs="0" name="date" type="bb:approximateDate" />
+			<element minOccurs="0" name="secondaryDate" type="bb:approximateDate" />
+			<element minOccurs="0" name="person" type="bb:person" />
+			<element minOccurs="0" name="fromTeam" type="bb:team" />
+			<element minOccurs="0" name="fromLeague" type="bb:league" />
+			<element minOccurs="0" name="toTeam" type="bb:team" />
+			<element minOccurs="0" name="toLeague" type="bb:league" />
+		</choice>
+		<attribute name="transactionId" type="long" />
+		<attribute name="retroId" type="string" />
+		<attribute name="time" type="bb:transactionTime" />
+		<attribute name="approximate" type="boolean" />
+		<attribute name="unknownFirstName" type="string" />
+		<attribute name="unknownLastName" type="string" />
+		<attribute name="type" type="bb:transactionType" />
+		<attribute name="draftType" type="bb:draftType" />
+		<attribute name="draftRound" type="int" />
+		<attribute name="amount" type="float" />
+		<attribute name="info" type="string" />
+	</complexType>
+	<simpleType name="transactionTime">
+		<restriction base="string">
+			<enumeration value="BEFORE_GAMES" />
+			<enumeration value="AFTER_FROM_GAME_BEFORE_TO_GAME" />
+			<enumeration value="AFTER_GAMES" />
+		</restriction>
+	</simpleType>
+	<simpleType name="transactionType">
+		<restriction base="string">
+			<enumeration value="ASSIGN" />
+			<enumeration value="CONDITIONAL" />
+			<enumeration value="CONDITIONAL_RETURN" />
+			<enumeration value="RULE_5_DRAFT" />
+			<enumeration value="AMATEUR_DRAFT" />
+			<enumeration value="FIRST_YEAR_DRAFT" />
+			<enumeration value="MINOR_DRAFT" />
+			<enumeration value="AMATEUR_DRAFT_UNSIGNED" />
+			<enumeration value="DRAFT_RETURN" />
+			<enumeration value="SPECIAL_DRAFT" />
+			<enumeration value="AMATEUR_DRAFT_VOID" />
+			<enumeration value="FREE_AGENT" />
+			<enumeration value="FREE_AGENT_AMATEUR" />
+			<enumeration value="FREE_AGENT_AMATEUR_BONUS" />
+			<enumeration value="FREE_AGENT_COMPENSATION" />
+			<enumeration value="FREE_AGENT_GRANTED" />
+			<enumeration value="FREE_AGENT_FIRST" />
+			<enumeration value="FREE_AGENT_VOID" />
+			<enumeration value="BEREAVEMENT" />
+			<enumeration value="BEREAVEMENT_RETURN" />
+			<enumeration value="INELIGIBLE" />
+			<enumeration value="INELIGIBLE_RETURN" />
+			<enumeration value="DEMOTE" />
+			<enumeration value="PROMOTE" />
+			<enumeration value="HELD_OUT" />
+			<enumeration value="HELD_OUT_RETURN" />
+			<enumeration value="DISABLE" />
+			<enumeration value="DISABLE_RETURN" />
+			<enumeration value="MILITARY" />
+			<enumeration value="MILITARY_RETURN" />
+			<enumeration value="SUSPEND" />
+			<enumeration value="SUSPEND_RETURN" />
+			<enumeration value="UNAVAILABLE" />
+			<enumeration value="UNAVAILABLE_RETURN" />
+			<enumeration value="RETIRE" />
+			<enumeration value="RETIRE_RETURN" />
+			<enumeration value="JUMP" />
+			<enumeration value="JUMP_RETURN" />
+			<enumeration value="LOAN" />
+			<enumeration value="LOAN_RETURN" />
+			<enumeration value="MINOR_LEAGUE_RIGHTS" />
+			<enumeration value="MINOR_LEAGUE_RIGHTS_RETURN" />
+			<enumeration value="PURCHASE" />
+			<enumeration value="PURCHASE_RETURN" />
+			<enumeration value="PURCHASE_VOID" />
+			<enumeration value="RELEASE" />
+			<enumeration value="TRADE" />
+			<enumeration value="TRADE_NO_REPORT" />
+			<enumeration value="TRADE_ADDED" />
+			<enumeration value="TRADE_RETURN" />
+			<enumeration value="TRADE_VOID" />
+			<enumeration value="UNKNOWN" />
+			<enumeration value="LEAGUE_CONTROL" />
+			<enumeration value="LEAGUE_ASSIGN" />
+			<enumeration value="WAIVER" />
+			<enumeration value="WAIVER_FIRST_YEAR" />
+			<enumeration value="WAIVER_RETURN" />
+			<enumeration value="WAIVER_VOID" />
+			<enumeration value="EXPANSION_DRAFT" />
+			<enumeration value="EXPANSION_DRAFT_ADDED" />
+		</restriction>
+	</simpleType>
+	<simpleType name="windDirection">
+		<restriction base="string">
+			<enumeration value="FROM_LEFT_FIELD" />
+			<enumeration value="FROM_CENTER_FIELD" />
+			<enumeration value="FROM_RIGHT_FIELD" />
+			<enumeration value="LEFT_TO_RIGHT" />
+			<enumeration value="RIGHT_TO_LEFT" />
+			<enumeration value="TO_LEFT_FIELD" />
+			<enumeration value="TO_CENTER_FIELD" />
+			<enumeration value="TO_RIGHT_FIELD" />
+		</restriction>
+	</simpleType>
+</schema>

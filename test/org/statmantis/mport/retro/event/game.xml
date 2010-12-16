@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bb:game xmlns:bb="http://base.googlecode.com/schema/1" 
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://base.googlecode.com/schema/1 schema.xsd"
+        outs="27" retroId="" startDate="2010-04-05">
+    <bb:homeTeam retroId="TEX" />
+    <bb:homeInfo>
+       <bb:gamePlayers>
+           <bb:player retroId="borbj001" />
+           <bb:positions beginningInning="1" position="CENTER_FIELD" />
+       </bb:gamePlayers>
+       <bb:gamePlayers>
+           <bb:player retroId="younm003" />
+           <bb:positions beginningInning="1" position="THIRD_BASE" />
+       </bb:gamePlayers>
+       <bb:gamePlayers>
+           <bb:player retroId="hamij003" />
+           <bb:positions beginningInning="1" position="LEFT_FIELD" />
+       </bb:gamePlayers>
+       <bb:gamePlayers>
+           <bb:player retroId="guerv001" />
+           <bb:positions beginningInning="1" position="DESIGNATED_HITTER" />
+       </bb:gamePlayers>
+       <bb:gamePlayers>
+           <bb:player retroId="cruzn002" />
+           <bb:positions beginningInning="1" position="RIGHT_FIELD" />
+       </bb:gamePlayers>
+       <bb:gamePlayers>
+           <bb:player retroId="davic003" />
+           <bb:positions beginningInning="1" position="FIRST_BASE" />
+       </bb:gamePlayers>
+       <bb:gamePlayers>
+           <bb:player retroId="saltj001" />
+           <bb:positions beginningInning="1" position="CATCHER" />
+       </bb:gamePlayers>
+       <bb:gamePlayers>
+           <bb:player retroId="blana001" />
+           <bb:positions beginningInning="1" position="SECOND_BASE" />
+       </bb:gamePlayers>
+       <bb:gamePlayers>
+           <bb:player retroId="andre001" />
+           <bb:positions beginningInning="1" position="SHORTSTOP" />
+       </bb:gamePlayers>
+       <bb:gamePlayers>
+           <bb:player retroId="felds001" />
+           <bb:positions beginningInning="1" position="PITCHER" />
+       </bb:gamePlayers>       
+    </bb:homeInfo>
+    <bb:visitingTeam retroId="TOR" />
+    <bb:visitorInfo>
+       <bb:gamePlayers>
+           <bb:player retroId="bautj002" />
+           <bb:positions beginningInning="1" position="RIGHT_FIELD" />
+       </bb:gamePlayers>
+       <bb:gamePlayers>
+           <bb:player retroId="hilla001" />
+           <bb:positions beginningInning="1" position="SECOND_BASE" />
+       </bb:gamePlayers>
+       <bb:gamePlayers>
+           <bb:player retroId="linda001" />
+           <bb:positions beginningInning="1" position="DESIGNATED_HITTER" />
+       </bb:gamePlayers>
+       <bb:gamePlayers>
+           <bb:player retroId="wellv001" />
+           <bb:positions beginningInning="1" position="CENTER_FIELD" />
+       </bb:gamePlayers>
+       <bb:gamePlayers>
+           <bb:player retroId="overl001" />
+           <bb:positions beginningInning="1" position="FIRST_BASE" />
+       </bb:gamePlayers>
+       <bb:gamePlayers>
+           <bb:player retroId="buckj001" />
+           <bb:positions beginningInning="1" position="CATCHER" />
+       </bb:gamePlayers>
+       <bb:gamePlayers>
+           <bb:player retroId="encae001" />
+           <bb:positions beginningInning="1" position="THIRD_BASE" />
+       </bb:gamePlayers>
+       <bb:gamePlayers>
+           <bb:player retroId="gonza002" />
+           <bb:positions beginningInning="1" position="SHORTSTOP" />
+       </bb:gamePlayers>
+       <bb:gamePlayers>
+           <bb:player retroId="snidt001" />
+           <bb:positions beginningInning="1" position="LEFT_FIELD" />
+       </bb:gamePlayers>
+       <bb:gamePlayers>
+           <bb:player retroId="marcs001" />
+           <bb:positions beginningInning="1" position="PITCHER" />
+       </bb:gamePlayers>
+    </bb:visitorInfo>
+</bb:game>

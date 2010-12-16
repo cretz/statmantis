@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:mlb="http://gdx.mlb.com/components/schema/1"
+	elementFormDefault="qualified" targetNamespace="http://gdx.mlb.com/components/schema/1">
+
+	<!-- Inning stuff -->
+
+	<complexType name="inning">
+		<sequence>
+			<element name="top" type="mlb:inningHalf" minOccurs="0" />
+			<element name="bottom" type="mlb:inningHalf" minOccurs="0" />
+		</sequence>
+		<attribute name="num" type="int" />
+		<attribute name="away_team" type="string" />
+		<attribute name="home_team" type="string" />
+		<attribute name="next" type="string" />
+	</complexType>
+
+	<complexType name="inningScores">
+		<sequence>
+			<element name="score" type="mlb:inningScore" />
+		</sequence>
+		<attribute name="away_team" type="string" />
+		<attribute name="home_team" type="string" />
+	</complexType>
+
+	<complexType name="inningScore">
+		<choice minOccurs="0" maxOccurs="unbounded">
+			<element name="atBatEvent" type="mlb:inningAtbat" />
+			<element name="action" type="mlb:inningAction" />
+		</choice>
+		<attribute name="inn" type="int" />
+		<attribute name="atbat_num" type="int" />
+		<attribute name="top_inning" type="string" />
+		<attribute name="home" type="int" />
+		<attribute name="away" type="int" />
+		<attribute name="pbp" type="string" />
+	</complexType>
+
+	<complexType name="inningHalf">
+		<choice minOccurs="0" maxOccurs="unbounded">
+			<element name="atBatEvent" type="mlb:inningAtbat" />
+			<element name="action" type="mlb:inningAction" />
+		</choice>
+	</complexType>
+
+	<complexType name="inningAction">
+		<attribute name="b" type="int" />
+		<attribute name="s" type="int" />
+		<attribute name="o" type="int" />
+		<attribute name="des" type="string" />
+		<attribute name="event" type="string" />
+		<attribute name="tfs" type="long" />
+		<attribute name="player" type="long" />
+		<attribute name="pitch" type="int" />
+	</complexType>
+
+	<complexType name="inningAtbat">
+		<sequence>
+			<element name="pitch" type="mlb:inningPitch" minOccurs="0"
+				maxOccurs="unbounded" />
+			<element name="runner" type="mlb:inningRunner" minOccurs="0"
+				maxOccurs="unbounded" />
+		</sequence>
+		<attribute name="num" type="int" />
+		<attribute name="b" type="int" />
+		<attribute name="s" type="int" />
+		<attribute name="o" type="int" />
+		<attribute name="start_tfs" type="long" />
+		<attribute name="batter" type="long" />
+		<attribute name="stand" type="string" />
+		<attribute name="b_height" type="string" />
+		<attribute name="pitcher" type="long" />
+		<attribute name="p_throws" type="string" />
+		<attribute name="des" type="string" />
+		<attribute name="event" type="string" />
+	</complexType>
+
+	<complexType name="inningRunner">
+		<attribute name="id" type="long" />
+		<attribute name="start" type="string" />
+		<attribute name="end" type="string" />
+		<attribute name="event" type="string" />
+	</complexType>
+
+	<complexType name="inningPitch">
+		<attribute name="des" type="string" />
+		<attribute name="id" type="int" />
+		<attribute name="type" type="string" />
+		<attribute name="x" type="decimal" />
+		<attribute name="y" type="decimal" />
+		<attribute name="sv_id" type="string" />
+		<attribute name="start_speed" type="decimal" />
+		<attribute name="end_speed" type="decimal" />
+		<attribute name="sz_top" type="decimal" />
+		<attribute name="sz_bot" type="decimal" />
+		<attribute name="pfx_x" type="decimal" />
+		<attribute name="pfx_z" type="decimal" />
+		<attribute name="px" type="decimal" />
+		<attribute name="pz" type="decimal" />
+		<attribute name="x0" type="decimal" />
+		<attribute name="y0" type="decimal" />
+		<attribute name="z0" type="decimal" />
+		<attribute name="vx0" type="decimal" />
+		<attribute name="vy0" type="decimal" />
+		<attribute name="vz0" type="decimal" />
+		<attribute name="ax" type="decimal" />
+		<attribute name="ay" type="decimal" />
+		<attribute name="az" type="decimal" />
+		<attribute name="break_y" type="decimal" />
+		<attribute name="break_angle" type="decimal" />
+		<attribute name="break_length" type="decimal" />
+		<attribute name="pitch_type" type="string" />
+		<attribute name="type_confidence" type="decimal" />
+		<attribute name="zone" type="int" />
+		<attribute name="nasty" type="int" />
+		<attribute name="spin_dir" type="decimal" />
+		<attribute name="spin_rate" type="decimal" />
+		<attribute name="cc" type="string" />
+	</complexType>
+
+	<complexType name="inningHitchart">
+		<sequence>
+			<element name="hip" type="mlb:inningHip" minOccurs="0"
+				maxOccurs="unbounded" />
+		</sequence>
+	</complexType>
+
+	<complexType name="inningHip">
+		<attribute name="des" type="string" />
+		<attribute name="x" type="decimal" />
+		<attribute name="y" type="decimal" />
+		<attribute name="batter" type="long" />
+		<attribute name="pitcher" type="long" />
+		<attribute name="type" type="string" />
+		<attribute name="team" type="string" />
+		<attribute name="inning" type="int" />
+	</complexType>
+
+	<!-- Batter stuff -->
+
+	<complexType name="batterPlayer">
+		<sequence>
+			<element name="season" type="mlb:batterPlayerStat" />
+			<element name="series" type="mlb:batterPlayerStat" />
+			<element name="month" type="mlb:batterPlayerStat" />
+			<element name="Team" type="mlb:batterPlayerStat" />
+			<element name="Empty" type="mlb:batterPlayerStat" />
+			<element name="Men_On" type="mlb:batterPlayerStat" />
+			<element name="RISP" type="mlb:batterPlayerStat" />
+			<element name="vs_LHP" type="mlb:batterPlayerStat" />
+			<element name="vs_RHP" type="mlb:batterPlayerStat" />
+			<element name="vs_P" type="mlb:batterPlayerStat" />
+			<element name="vs_P5" type="mlb:batterPlayerStat" />
+			<element name="Pitch">
+				<complexType>
+					<attribute name="loves" type="string" />
+					<attribute name="hates" type="string" />
+				</complexType>
+			</element>
+			<element name="faced">
+				<complexType>
+					<sequence>
+						<element name="pitch" minOccurs="0" maxOccurs="unbounded">
+							<complexType>
+								<attribute name="type" type="string" />
+							</complexType>
+						</element>
+					</sequence>
+				</complexType>
+			</element>
+			<element name="atbats">
+				<complexType>
+					<sequence>
+						<element name="ab" minOccurs="0" maxOccurs="unbounded">
+							<complexType>
+								<attribute name="inning" type="int" />
+								<attribute name="event" type="string" />
+							</complexType>
+						</element>
+					</sequence>
+				</complexType>
+			</element>
+		</sequence>
+		<attribute name="team" type="string" />
+		<attribute name="id" type="long" />
+		<attribute name="pos" type="string" />
+		<attribute name="type" type="string" />
+		<attribute name="first_name" type="string" />
+		<attribute name="last_name" type="string" />
+		<attribute name="jersey_number" type="int" />
+		<attribute name="height" type="string" />
+		<attribute name="weight" type="int" />
+		<attribute name="bats" type="string" />
+		<attribute name="throws" type="string" />
+		<attribute name="dob" type="string" />
+	</complexType>
+
+	<complexType name="batterPlayerStat">
+		<attribute name="des" type="string" />
+		<attribute name="avg" type="decimal" />
+		<attribute name="ab" type="int" />
+		<attribute name="hr" type="int" />
+		<attribute name="rbi" type="int" />
+		<attribute name="ops" type="decimal" />
+	</complexType>
+
+	<!-- Bench stuff -->
+
+	<complexType name="bench">
+		<sequence>
+			<element name="away" type="mlb:benchTeam" />
+			<element name="home" type="mlb:benchTeam" />
+		</sequence>
+	</complexType>
+
+	<complexType name="benchTeam">
+		<sequence>
+			<element name="batters">
+				<complexType>
+					<sequence>
+						<element name="batter" type="mlb:benchBatter" minOccurs="0"
+							maxOccurs="unbounded" />
+					</sequence>
+				</complexType>
+			</element>
+			<element name="pitchers">
+				<complexType>
+					<sequence>
+						<element name="pitcher" type="mlb:benchPitcher" minOccurs="0"
+							maxOccurs="unbounded" />
+					</sequence>
+				</complexType>
+			</element>
+		</sequence>
+		<attribute name="tid" type="string" />
+		<attribute name="name" type="string" />
+	</complexType>
+
+	<complexType name="benchBatter">
+		<attribute name="id" type="long" />
+		<attribute name="last" type="string" />
+		<attribute name="b" type="string" />
+		<attribute name="pos" type="string" />
+		<attribute name="avg" type="decimal" />
+		<attribute name="g" type="int" />
+		<attribute name="ab" type="int" />
+		<attribute name="r" type="int" />
+		<attribute name="h" type="int" />
+		<attribute name="hr" type="int" />
+		<attribute name="rbi" type="int" />
+		<attribute name="sb" type="int" />
+	</complexType>
+
+	<complexType name="benchPitcher">
+		<attribute name="id" type="long" />
+		<attribute name="last" type="string" />
+		<attribute name="t" type="int" />
+		<attribute name="w" type="int" />
+		<attribute name="l" type="int" />
+		<attribute name="era" type="decimal" />
+		<attribute name="g" type="int" />
+		<attribute name="sv" type="int" />
+		<attribute name="ip" type="decimal" />
+		<attribute name="h" type="int" />
+		<attribute name="bb" type="int" />
+		<attribute name="so" type="int" />
+	</complexType>
+
+	<!-- Boxscore stuff -->
+
+	<complexType name="boxscore">
+		<sequence>
+			<element name="linescore" type="mlb:boxscoreLinescore" />
+			<element name="pitching" type="mlb:boxscorePitching" />
+			<element name="batting" type="mlb:boxscoreBatting" />
+			<element name="pitching" type="mlb:boxscorePitching" />
+			<element name="batting" type="mlb:boxscoreBatting" />
+			<element name="game_info" type="string" />
+		</sequence>
+		<attribute name="game_id" type="string" />
+		<attribute name="game_pk" type="long" />
+		<attribute name="home_sport_code" type="string" />
+		<attribute name="away_team_code" type="string" />
+		<attribute name="home_team_code" type="string" />
+		<attribute name="away_id" type="int" />
+		<attribute name="home_id" type="int" />
+		<attribute name="away_fname" type="string" />
+		<attribute name="home_fname" type="string" />
+		<attribute name="away_sname" type="string" />
+		<attribute name="home_sname" type="string" />
+		<attribute name="date" type="string" />
+		<attribute name="away_wins" type="int" />
+		<attribute name="away_loss" type="int" />
+		<attribute name="home_wins" type="int" />
+		<attribute name="home_loss" type="int" />
+		<attribute name="status_ind" type="string" />
+	</complexType>
+
+	<complexType name="boxscoreLinescore">
+		<sequence>
+			<element name="inning_line_score" minOccurs="0" maxOccurs="unbounded">
+				<complexType>
+					<attribute name="away" type="int" />
+					<attribute name="home" type="int" />
+					<attribute name="inning" type="int" />
+				</complexType>
+			</element>
+		</sequence>
+		<attribute name="away_team_runs" type="int" />
+		<attribute name="home_team_runs" type="int" />
+		<attribute name="away_team_hits" type="int" />
+		<attribute name="home_team_hits" type="int" />
+		<attribute name="away_team_errors" type="int" />
+		<attribute name="home_team_errors" type="int" />
+	</complexType>
+
+	<complexType name="boxscorePitching">
+		<sequence>
+			<element name="pitcher" type="mlb:boxscorePitcher" minOccurs="0"
+				maxOccurs="unbounded" />
+		</sequence>
+		<attribute name="team_flag" type="string" />
+		<attribute name="out" type="int" />
+		<attribute name="h" type="int" />
+		<attribute name="r" type="int" />
+		<attribute name="er" type="int" />
+		<attribute name="bb" type="int" />
+		<attribute name="so" type="int" />
+		<attribute name="hr" type="int" />
+		<attribute name="bf" type="int" />
+		<attribute name="era" type="decimal" />
+	</complexType>
+
+	<complexType name="boxscorePitcher">
+		<attribute name="id" type="long" />
+		<attribute name="name" type="string" />
+		<attribute name="pos" type="string" />
+		<attribute name="out" type="int" />
+		<attribute name="bf" type="int" />
+		<attribute name="er" type="int" />
+		<attribute name="r" type="int" />
+		<attribute name="h" type="int" />
+		<attribute name="so" type="int" />
+		<attribute name="hr" type="int" />
+		<attribute name="bb" type="int" />
+		<attribute name="w" type="int" />
+		<attribute name="l" type="int" />
+		<attribute name="sv" type="int" />
+		<attribute name="bs" type="int" />
+		<attribute name="hld" type="int" />
+		<attribute name="era" type="decimal" />
+		<attribute name="note" type="string" />
+	</complexType>
+
+	<complexType name="boxscoreBatting">
+		<sequence>
+			<element name="batter" type="mlb:boxscoreBatter" minOccurs="0"
+				maxOccurs="unbounded" />
+			<element name="text_date" type="string" />
+		</sequence>
+		<attribute name="team_flag" type="string" />
+		<attribute name="ab" type="int" />
+		<attribute name="r" type="int" />
+		<attribute name="h" type="int" />
+		<attribute name="d" type="int" />
+		<attribute name="t" type="int" />
+		<attribute name="hr" type="int" />
+		<attribute name="rbi" type="int" />
+		<attribute name="bb" type="int" />
+		<attribute name="po" type="int" />
+		<attribute name="da" type="int" />
+		<attribute name="so" type="int" />
+		<attribute name="lob" type="int" />
+		<attribute name="avg" type="decimal" />
+	</complexType>
+
+	<complexType name="boxscoreBatter">
+		<attribute name="id" type="long" />
+		<attribute name="name" type="string" />
+		<attribute name="pos" type="string" />
+		<attribute name="bo" type="int" />
+		<attribute name="ab" type="int" />
+		<attribute name="po" type="int" />
+		<attribute name="r" type="int" />
+		<attribute name="bb" type="int" />
+		<attribute name="a" type="int" />
+		<attribute name="t" type="int" />
+		<attribute name="sf" type="int" />
+		<attribute name="h" type="int" />
+		<attribute name="e" type="int" />
+		<attribute name="d" type="int" />
+		<attribute name="hbp" type="int" />
+		<attribute name="so" type="int" />
+		<attribute name="hr" type="int" />
+		<attribute name="rbi" type="int" />
+		<attribute name="lob" type="int" />
+		<attribute name="fldg" type="decimal" />
+		<attribute name="sb" type="int" />
+		<attribute name="s_hr" type="int" />
+		<attribute name="s_rbi" type="int" />
+		<attribute name="avg" type="decimal" />
+	</complexType>
+
+	<!-- Event log stuff -->
+
+	<complexType name="eventLogGame">
+		<sequence>
+			<element name="team" type="mlb:eventLogTeam" minOccurs="2"
+				maxOccurs="2" />
+		</sequence>
+		<attribute name="id" type="string" />
+		<attribute name="pk" type="long" />
+	</complexType>
+
+	<complexType name="eventLogTeam">
+		<sequence>
+			<element name="event" type="mlb:eventLogEvent" minOccurs="0"
+				maxOccurs="unbounded" />
+		</sequence>
+		<attribute name="id" type="int" />
+		<attribute name="name" type="string" />
+		<attribute name="home_team" type="boolean" />
+	</complexType>
+
+	<complexType name="eventLogEvent">
+		<attribute name="number" type="int" />
+		<attribute name="inning" type="int" />
+		<attribute name="description" type="string" />
+	</complexType>
+
+	<!-- Game stuff -->
+
+	<complexType name="game">
+		<sequence>
+			<element name="team" type="mlb:gameTeam" minOccurs="2"
+				maxOccurs="2" />
+			<element name="stadium" type="mlb:gameStadium" />
+		</sequence>
+		<attribute name="type" type="string" />
+		<attribute name="local_game_time" type="string" />
+		<attribute name="game_pk" type="long" />
+		<attribute name="game_time_et" type="string" />
+		<attribute name="gameday_sw" type="string" />
+	</complexType>
+
+	<complexType name="gameTeam">
+		<attribute name="type" type="string" />
+		<attribute name="code" type="string" />
+		<attribute name="file_code" type="string" />
+		<attribute name="abbrev" type="string" />
+		<attribute name="id" type="int" />
+		<attribute name="name" type="string" />
+		<attribute name="name_full" type="string" />
+		<attribute name="name_brief" type="string" />
+		<attribute name="w" type="int" />
+		<attribute name="l" type="int" />
+		<attribute name="division_id" type="int" />
+		<attribute name="league_id" type="int" />
+		<attribute name="league" type="string" />
+	</complexType>
+
+	<complexType name="gameStadium">
+		<attribute name="id" type="int" />
+		<attribute name="name" type="string" />
+		<attribute name="venue_w_chan_loc" type="string" />
+		<attribute name="location" type="string" />
+	</complexType>
+
+	<!-- Game event stuff -->
+
+	<complexType name="gameEventGame">
+		<sequence>
+			<element name="inning" type="mlb:gameEventInning" minOccurs="0"
+				maxOccurs="unbounded" />
+			<element name="atBat">
+				<complexType>
+					<attribute name="pid" type="long" />
+				</complexType>
+			</element>
+			<element name="deck">
+				<complexType>
+					<attribute name="pid" type="long" />
+				</complexType>
+			</element>
+			<element name="hole">
+				<complexType>
+					<attribute name="pid" type="long" />
+				</complexType>
+			</element>
+		</sequence>
+	</complexType>
+
+	<complexType name="gameEventInning">
+		<sequence>
+			<element name="top" type="mlb:gameEventInningHalf" />
+			<element name="bottom" type="mlb:gameEventInningHalf" />
+		</sequence>
+		<attribute name="num" type="int" />
+	</complexType>
+
+	<complexType name="gameEventInningHalf">
+		<choice minOccurs="0" maxOccurs="unbounded">
+			<element name="atbat" type="mlb:gameEventAtbat" />
+			<element name="action" type="mlb:gameEventAction" />
+		</choice>
+	</complexType>
+
+	<complexType name="gameEventAtbat">
+		<attribute name="num" type="int" />
+		<attribute name="o" type="int" />
+		<attribute name="start_tfs" type="long" />
+		<attribute name="batter" type="long" />
+		<attribute name="pitcher" type="long" />
+		<attribute name="des" type="string" />
+		<attribute name="event" type="string" />
+		<attribute name="b1" type="string" />
+		<attribute name="b2" type="string" />
+		<attribute name="b3" type="string" />
+	</complexType>
+
+	<complexType name="gameEventAction">
+		<attribute name="o" type="int" />
+		<attribute name="des" type="string" />
+		<attribute name="event" type="string" />
+		<attribute name="tfs" type="long" />
+		<attribute name="player" type="long" />
+		<attribute name="pitch" type="int" />
+	</complexType>
+</schema>

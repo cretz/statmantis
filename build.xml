@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="statmantis">
+
+	<target name="generate-mlb-artifacts">
+		<!-- clean -->
+		<delete dir="src/org/statmantis/mport/mlb/gen" />
+		<!-- taskdef -->
+		<taskdef name="xjc" classname="com.sun.tools.xjc.XJCTask">
+			<classpath>
+				<fileset dir="lib" includes="*.jar" />
+			</classpath>
+		</taskdef>
+		<!-- xjc -->
+		<xjc schema="src/org/statmantis/mport/mlb/schema.xsd"
+			 binding="src/org/statmantis/mport/mlb/schema.xjb"
+			 package="org.statmantis.mport.mlb.gen"
+			 destdir="src">
+			<classpath>
+				<fileset dir="lib" includes="*.jar" />
+			</classpath>
+		</xjc>
+	</target>
+</project>
