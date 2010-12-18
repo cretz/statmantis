@@ -27,6 +27,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -53,6 +54,9 @@ public class Play implements Serializable {
     @Column(name = "Inning", nullable = false)
     private int inning;
     
+    @Column(name = "Outs", nullable = false)
+    private int outs;
+    
     @Column(name = "HomeTeam", nullable = false)
     private boolean homeTeam;
     
@@ -67,10 +71,30 @@ public class Play implements Serializable {
     
     @Column(name = "BattedOutOfTurn", nullable = false)
     private boolean battedOutOfTurn;
-    
+
     @ManyToOne
     @Column(name = "PlayerId")
     private GamePlayer player;
+
+    @ManyToOne
+    @Column(name = "BatterId")
+    private GamePlayer batter;
+    
+    @ManyToOne
+    @Column(name = "RunnerAtFirstId")
+    private GamePlayer runnerAtFirst;
+    
+    @ManyToOne
+    @Column(name = "RunnerAtSecondId")
+    private GamePlayer runnerAtSecond;
+    
+    @ManyToOne
+    @Column(name = "RunnerAtThirdId")
+    private GamePlayer runnerAtThird;
+    
+    @ManyToOne
+    @Column(name = "PitcherId")
+    private GamePlayer pitcher;
     
     @Enumerated(EnumType.STRING)
     @Column(name = "BatterHandAdjustment", length = HandPreference.MAX_LENGTH)
@@ -90,6 +114,9 @@ public class Play implements Serializable {
     @OneToOne
     @JoinColumn(name = "PlayEventId")
     private PlayEvent event;
+    
+    @ManyToMany(mappedBy = "plays")
+    private Game game;
     
     @OneToMany
     @JoinColumn(name = "PlayRunnerAdvancementId")
@@ -119,6 +146,14 @@ public class Play implements Serializable {
 
     public void setInning(int inning) {
         this.inning = inning;
+    }
+    
+    public int getOuts() {
+        return outs;
+    }
+    
+    public void setOuts(int outs) {
+        this.outs = outs;
     }
 
     public boolean isHomeTeam() {
@@ -169,6 +204,46 @@ public class Play implements Serializable {
         this.player = player;
     }
     
+    public GamePlayer getBatter() {
+        return batter;
+    }
+    
+    public void setBatter(GamePlayer batter) {
+        this.batter = batter;
+    }
+    
+    public GamePlayer getRunnerAtFirst() {
+        return runnerAtFirst;
+    }
+    
+    public void setRunnerAtFirst(GamePlayer runnerAtFirst) {
+        this.runnerAtFirst = runnerAtFirst;
+    }
+    
+    public GamePlayer getRunnerAtSecond() {
+        return runnerAtSecond;
+    }
+    
+    public void setRunnerAtSecond(GamePlayer runnerAtSecond) {
+        this.runnerAtSecond = runnerAtSecond;
+    }
+    
+    public GamePlayer getRunnerAtThird() {
+        return runnerAtThird;
+    }
+    
+    public void setRunnerAtThird(GamePlayer runnerAtThird) {
+        this.runnerAtThird = runnerAtThird;
+    }
+    
+    public GamePlayer getPitcher() {
+        return pitcher;
+    }
+    
+    public void setPitcher(GamePlayer pitcher) {
+        this.pitcher = pitcher;
+    }
+    
     public HandPreference getBatterHandAdjustment() {
         return batterHandAdjustment;
     }
@@ -199,6 +274,14 @@ public class Play implements Serializable {
     
     public void setEvent(PlayEvent event) {
         this.event = event;
+    }
+    
+    public Game getGame() {
+        return game;
+    }
+    
+    public void setGame(Game game) {
+        this.game = game;
     }
     
     public List<PlayRunnerAdvancement> getAdvancements() {

@@ -43,6 +43,15 @@ public class GamePosition implements Serializable {
     
     @Column(name = "BeginningInning", nullable = false)
     private int beginningInning;
+    
+    @Column(name = "BeginningInningOutCount", nullable = false)
+    private int beginningInningOutCount;
+    
+    @Column(name = "EndingInning")
+    private Integer endingInning;
+    
+    @Column(name = "EndingInningOutCount")
+    private Integer endingInningOutCount;
 
     @Column(name = "LineupPosition")
     private Integer lineupPosition;
@@ -65,6 +74,30 @@ public class GamePosition implements Serializable {
 
     public void setBeginningInning(int beginningInning) {
         this.beginningInning = beginningInning;
+    }
+    
+    public int getBeginningInningOutCount() {
+        return beginningInningOutCount;
+    }
+    
+    public void setBeginningInningOutCount(int beginningInningOutCount) {
+        this.beginningInningOutCount = beginningInningOutCount;
+    }
+    
+    public Integer getEndingInning() {
+        return endingInning;
+    }
+    
+    public void setEndingInning(Integer endingInning) {
+        this.endingInning = endingInning;
+    }
+    
+    public Integer getEndingInningOutCount() {
+        return endingInningOutCount;
+    }
+    
+    public void setEndingInningOutCount(Integer endingInningOutCount) {
+        this.endingInningOutCount = endingInningOutCount;
     }
 
     public Integer getLineupPosition() {

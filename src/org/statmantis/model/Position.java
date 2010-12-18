@@ -20,7 +20,8 @@ package org.statmantis.model;
  * 
  * @author Chad Retz
  */
-public enum Position {
+public enum Position implements RetrosheetModel {
+    
     PITCHER(FieldLocation.MOUND),
     CATCHER(FieldLocation.HOME),
     FIRST_BASE(FieldLocation.FIRST),
@@ -45,8 +46,14 @@ public enum Position {
     private Position(FieldLocation location) {
         this.location = location;
     }
+
+    @Override
+    public String getRetroId() {
+        return String.valueOf(ordinal() + 1);
+    }
     
     public FieldLocation getLocation() {
         return location;
     }
+
 }
