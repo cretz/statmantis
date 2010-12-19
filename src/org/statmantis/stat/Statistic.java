@@ -17,9 +17,26 @@ package org.statmantis.stat;
 
 import com.google.common.collect.ClassToInstanceMap;
 
+/**
+ * Base interface for all statistics. All statistics must have
+ * a {@link StatisticInfo} annotation defining them.
+ *
+ * @author Chad Retz
+ */
 public interface Statistic<T extends Number> {
 
+    /**
+     * Set the dependencies for this statistic. This will set all dependencies
+     * that defined by {@link StatisticInfo#dependencies()}
+     *  
+     * @param dependencies
+     */
     void setCurrentDependencies(ClassToInstanceMap<Statistic<? extends Number>> dependencies);
     
+    /**
+     * Get the current value of this statistic
+     * 
+     * @return
+     */
     T getCurrentValue();
 }

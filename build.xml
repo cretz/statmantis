@@ -1,23 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="statmantis">
 
-	<target name="generate-mlb-artifacts">
-		<!-- clean -->
-		<delete dir="src/org/statmantis/mport/mlb/gen" />
-		<!-- taskdef -->
-		<taskdef name="xjc" classname="com.sun.tools.xjc.XJCTask">
-			<classpath>
-				<fileset dir="lib" includes="*.jar" />
-			</classpath>
-		</taskdef>
-		<!-- xjc -->
-		<xjc schema="src/org/statmantis/mport/mlb/schema.xsd"
-			 binding="src/org/statmantis/mport/mlb/schema.xjb"
-			 package="org.statmantis.mport.mlb.gen"
-			 destdir="src">
-			<classpath>
-				<fileset dir="lib" includes="*.jar" />
-			</classpath>
-		</xjc>
-	</target>
+    <target name="generate-mlb-artifacts">
+        <!-- clean -->
+        <delete dir="src/org/statmantis/mport/mlb/gen" />
+        <!-- taskdef -->
+        <taskdef name="xjc" classname="com.sun.tools.xjc.XJCTask">
+            <classpath>
+                <fileset dir="lib" includes="*.jar" />
+            </classpath>
+        </taskdef>
+        <!-- xjc -->
+        <xjc schema="src/org/statmantis/mport/mlb/schema.xsd" 
+             binding="src/org/statmantis/mport/mlb/schema.xjb" 
+             package="org.statmantis.mport.mlb.gen" destdir="src">
+            <classpath>
+                <fileset dir="lib" includes="*.jar" />
+            </classpath>
+        </xjc>
+    </target>
+
+    <target name="clean">
+        <delete dir="build" />
+    </target>
+    
+    <target name="build-javadoc">
+        <delete dir="build/doc/api/org" />
+        <delete dir="build/doc/api/resources" />
+        <delete dir="build/doc/api" includes="*" excludes="MathJax" includeemptydirs="true" />
+        <!-- compile my little taglet -->
+        <delete dir="build/doc/taglet" />
+        <mkdir dir="build/doc/taglet" />
+        <javac srcdir="src" includes="org/statmantis/tools/javadoc/*" 
+            classpath="lib/doclet-api.jar" destdir="build/doc/taglet" />
+        <!-- javadoc -->
+        <javadoc sourcepath="src"
+                 defaultexcludes="yes"
+                 destdir="build/doc/api"
+                 author="true"
+                 version="true"
+                 use="true"
+                 windowtitle="StatMantis">
+            <doctitle><![CDATA[<h1>StatMantis</h1>]]></doctitle>
+            <bottom><![CDATA[<i>Copyright &#169; 2010 Chad Retz. All Rights Reserved.</i>]]></bottom>
+            <link href="http://download.oracle.com/javase/6/docs/api/" />
+            <classpath>
+                <fileset dir="lib" includes="*.jar" />
+            </classpath>
+            <footer><![CDATA[
+                <script type=\"text/javascript\" src=\"{@docroot}/MathJax/MathJax.js\"></script>
+            ]]></footer>
+            <taglet name="org.statmantis.tools.javadoc.LinkHrefTaglet" path="build/doc/taglet" />
+          </javadoc>
+    </target>
 </project>

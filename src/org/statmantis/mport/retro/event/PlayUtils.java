@@ -94,6 +94,7 @@ final class PlayUtils {
         PlayEvent event = new PlayEvent();
         event.setPlayType(type);
         event.setFielders(new ArrayList<GamePlayer>());
+        event.setModifiers(new ArrayList<PlayModifier>());
         switch (type) {
         case FLY_OUT:
             event.getFielders().add(getPlayerByFielderLocation(
@@ -157,9 +158,14 @@ final class PlayUtils {
             break;
         case ERROR:
         case ERROR_FOUL_FLY:
-            event.getFielders().add(getPlayerByFielderLocation(
+            GamePlayer fielder = getPlayerByFielderLocation(
                     Integer.valueOf(String.valueOf(evt.charAt(evt.length() - 1))), 
-                    context));
+                    context);
+            event.getFielders().add(fielder);
+            //add an error modifier too
+            PlayModifier mod = new PlayModifier();
+            mod.setFielder(fielder);
+            mod.setType(PlayModifierType.ERROR);
             break;
         case FIELDERS_CHOICE:
             event.setOut(true);

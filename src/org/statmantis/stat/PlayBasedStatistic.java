@@ -17,7 +17,18 @@ package org.statmantis.stat;
 
 import org.statmantis.model.Play;
 
+/**
+ * Interface {@link Statistic}s must implement that require a play's
+ * information to work with.
+ *
+ * @author Chad Retz
+ */
 public interface PlayBasedStatistic {
 
+    /**
+     * Apply the next applicable game to the statistic
+     * 
+     * @param play
+     */
     void applyPlay(Play play);
 }

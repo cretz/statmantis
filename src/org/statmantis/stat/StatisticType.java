@@ -19,5 +19,6 @@ public enum StatisticType {
     BATTING,
     PITCHING,
     FIELDING,
-    RUNNING
+    RUNNING,
+    GENERAL
 }

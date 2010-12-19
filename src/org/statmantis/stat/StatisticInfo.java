@@ -20,15 +20,40 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+/**
+ * Annotation that all statistics must use.
+ *
+ * @author Chad Retz
+ */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface StatisticInfo {
 
+    /**
+     * The friendly name of this statistic
+     * 
+     * @return
+     */
     String name();
     
+    /**
+     * All abbreviations (if applicable) for this statistic
+     * 
+     * @return
+     */
     String[] abbreviations() default {};
     
+    /**
+     * The statistic types this statistic represents
+     * 
+     * @return
+     */
     StatisticType[] types();
     
+    /**
+     * All dependencies of this statistic
+     * 
+     * @return
+     */
     Class<? extends Statistic<? extends Number>>[] dependencies() default {};
 }

@@ -6,11 +6,69 @@ import org.statmantis.model.GamePlayer;
 import org.statmantis.model.GamePosition;
 import org.statmantis.model.Person;
 import org.statmantis.model.Play;
+import org.statmantis.model.PlayModifier;
+import org.statmantis.model.PlayModifierType;
+import org.statmantis.model.PlayType;
 import org.statmantis.model.Position;
+import org.statmantis.model.Team;
 
 public class StatisticUtils {
 
     //TODO: move this to a more general place
+    
+    public static boolean isTeamOnField(Team team, Play play) {
+        return (play.isHomeTeam() && play.getGame().getVisitingTeam().equals(team)) ||
+                (!play.isHomeTeam() && play.getGame().getHomeTeam().equals(team));
+    }
+    
+    public static boolean isSacrificeFly(Play play) {
+        if (play.getEvent().getPlayType() == PlayType.FLY_OUT) {
+            //check the modifiers
+            if (play.getEvent().getModifiers() != null) {
+                for (PlayModifier modifier : play.getEvent().getModifiers()) {
+                    if (modifier.getType() == PlayModifierType.SACRIFICE_FLY) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+    
+    public static boolean isSacrificeHit(Play play) {
+        if (play.getEvent().getPlayType() == PlayType.GROUND_OUT) {
+            //check the modifiers
+            if (play.getEvent().getModifiers() != null) {
+                for (PlayModifier modifier : play.getEvent().getModifiers()) {
+                    if (modifier.getType() == PlayModifierType.SACRIFICE_HIT) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+    
+    public static boolean isSacrifice(Play play) {
+        if (play.getEvent().getPlayType() == PlayType.GROUND_OUT ||
+                play.getEvent().getPlayType() == PlayType.FLY_OUT) {
+            //check the modifiers
+            if (play.getEvent().getModifiers() != null) {
+                for (PlayModifier modifier : play.getEvent().getModifiers()) {
+                    if (modifier.getType() == PlayModifierType.SACRIFICE_HIT ||
+                            modifier.getType() == PlayModifierType.SACRIFICE_FLY) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+    
+    public static boolean isLoadedBases(Play play) {
+        return play.getRunnerAtFirst() != null && play.getRunnerAtSecond() != null &&
+            play.getRunnerAtThird() != null;
+    }
     
     public static boolean isCatcherInPlay(Person catcher, Play play) {
         Position position = getCurrentFielderPosition(catcher, play);
