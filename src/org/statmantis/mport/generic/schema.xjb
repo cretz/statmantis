@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jxb:bindings version="1.0" xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:mlb="http://gdx.mlb.com/components/schema/1">
+	<jxb:bindings schemaLocation="schema.xsd" node="/xs:schema">
+		<!-- Resolve ambiguity on attribute and element name here -->
+		<jxb:bindings
+			node="//xs:complexType[@name='batterPlayer']/xs:sequence/xs:element[@name='Team']">
+			<jxb:property name="playerTeam" />
+		</jxb:bindings>
+		
+		<!-- Resolve ambiguities due to multiple pitching/batting elements present -->
+		<jxb:bindings
+			node="//xs:complexType[@name='boxscore']/xs:sequence/xs:element[@name='pitching'][1]">
+			<jxb:property name="awayPitching" />
+		</jxb:bindings>
+		<jxb:bindings
+			node="//xs:complexType[@name='boxscore']/xs:sequence/xs:element[@name='batting'][1]">
+			<jxb:property name="homeBatting" />
+		</jxb:bindings>
+		<jxb:bindings
+			node="//xs:complexType[@name='boxscore']/xs:sequence/xs:element[@name='pitching'][2]">
+			<jxb:property name="homePitching" />
+		</jxb:bindings>
+		<jxb:bindings
+			node="//xs:complexType[@name='boxscore']/xs:sequence/xs:element[@name='batting'][2]">
+			<jxb:property name="awayBatting" />
+		</jxb:bindings>
+	</jxb:bindings>
+</jxb:bindings>
